@@ -31,8 +31,13 @@ var pdxAirport= {
     var aLi= document.createElement( 'li' );
     aLi.innerHTML= timeArray[i] + this.totalCookiesPH();
     airport1.appendChild( aLi );
+}
 
-        }
+    function sum(cookieArray){
+        var totes= cookieArray
+
+    }
+        
   
     }
 
@@ -72,7 +77,7 @@ var pioneerSquare= {
 
         for ( var i = 0; i < 15; i++){
 
-   var airport1= document.getElementById( 'airport' );
+   var airport1= document.getElementById( 'pioneer' );
     var aLi= document.createElement( 'li' );
     aLi.innerHTML= timeArray[i] + this.totalCookiesPH();
     airport1.appendChild( aLi );
@@ -116,7 +121,7 @@ var powell= {
 
         for ( var i = 0; i < 15; i++){
 
-   var airport1= document.getElementById( 'airport' );
+   var airport1= document.getElementById( 'powell' );
     var aLi= document.createElement( 'li' );
     aLi.innerHTML= timeArray[i] + this.totalCookiesPH();
     airport1.appendChild( aLi );
@@ -159,7 +164,7 @@ var johns= {
 
         for ( var i = 0; i < 15; i++){
 
-   var airport1= document.getElementById( 'airport' );
+   var airport1= document.getElementById( 'johns' );
     var aLi= document.createElement( 'li' );
     aLi.innerHTML= timeArray[i] + this.totalCookiesPH();
     airport1.appendChild( aLi );
@@ -202,7 +207,7 @@ var waterfront= {
 
         for ( var i = 0; i < 15; i++){
 
-   var airport1= document.getElementById( 'airport' );
+   var airport1= document.getElementById( 'waterfront' );
     var aLi= document.createElement( 'li' );
     aLi.innerHTML= timeArray[i] + this.totalCookiesPH();
     airport1.appendChild( aLi );
