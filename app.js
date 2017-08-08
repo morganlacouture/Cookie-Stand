@@ -1,222 +1,231 @@
-var pdxAirport= {
+var pdxAirport = {
     minCustomer: 23,
     maxCustomer: 65,
     avgCustomer: 6.3,
+    cookieArray: [],
+    getTotal: 0,
 
     customerPerHour: function () {
-         return Math.floor (Math.random() * (this.maxCustomer - this.minCustomer));
+        return Math.floor(Math.random() * (this.maxCustomer - this.minCustomer) + this.minCustomer);
     },
-      
-    totalCookiesPH: function () {   
 
-        var cookieArray = [];
+    totalCookiesPH: function () {
 
+        for (var i = 0; i < 15; i++){
 
-    cookieArray.push (Math.floor( this.customerPerHour() * this.avgCustomer ));
-
-   
-    return cookieArray
+        this.cookieArray.push(Math.floor(this.customerPerHour() * this.avgCustomer));
+        }
 
     },
 
+    sum: function () {
+        for (var i = 0; i < 15; i++) {
+            this.getTotal = this.cookieArray[i] + this.getTotal;
+        }
+
+        return this.getTotal;
+    },
 
     addToDom: function () {
 
-        var timeArray = ['6 am : ', '7 am : ', '8 am : ', '9 am : ', '10 am : ', '11 am : ', '12 pm : ', '1 pm : ', 
-                    '2 pm : ', '3 pm : ', '4 pm : ', '5 pm : ', '6 pm : ', '7 pm : ', '8 pm : '];
+        this.totalCookiesPH();
 
-        for ( var i = 0; i < 15; i++){
+        var timeArray = ['6 am : ', '7 am : ', '8 am : ', '9 am : ', '10 am : ', '11 am : ', '12 pm : ', '1 pm : ',
+            '2 pm : ', '3 pm : ', '4 pm : ', '5 pm : ', '6 pm : ', '7 pm : ', '8 pm : '];
 
-   var airport1= document.getElementById( 'airport' );
-    var aLi= document.createElement( 'li' );
-    aLi.innerHTML= timeArray[i] + this.totalCookiesPH();
-    airport1.appendChild( aLi );
-}
+        for (var i = 0; i < 15; i++) {
 
-    function sum(cookieArray){
-        var totes= cookieArray
+            var airport1 = document.getElementById('airport');
+            var aLi = document.createElement('li');
+            aLi.innerHTML = timeArray[i] + this.cookieArray[i];
+            airport1.appendChild(aLi);
+        }
 
-    }
         
-  
-    }
+        var airport1 = document.getElementById('airport');
+        var aLi = document.createElement('li');
+        aLi.innerHTML = ('Total : ' + this.sum());
+        airport1.appendChild(aLi);
+    },
 
-    
-};
+
+
+}
 
 pdxAirport.addToDom();
 
 
-
-var pioneerSquare= {
+var pioneerSquare = {
     minCustomer: 3,
     maxCustomer: 24,
     avgCustomer: 1.2,
 
     customerPerHour: function () {
-         return Math.floor (Math.random() * (this.maxCustomer - this.minCustomer));
+        return Math.floor(Math.random() * (this.maxCustomer - this.minCustomer));
     },
-      
-    totalCookiesPH: function () {   
+
+    totalCookiesPH: function () {
 
         var cookieArray = [];
 
 
-    cookieArray.push (Math.floor( this.customerPerHour() * this.avgCustomer ));
+        cookieArray.push(Math.floor(this.customerPerHour() * this.avgCustomer));
 
-   
-    return cookieArray
+
+        return cookieArray
 
     },
 
 
     addToDom: function () {
 
-        var timeArray = ['6 am : ', '7 am : ', '8 am : ', '9 am : ', '10 am : ', '11 am : ', '12 pm : ', '1 pm : ', 
-                    '2 pm : ', '3 pm : ', '4 pm : ', '5 pm : ', '6 pm : ', '7 pm : ', '8 pm : '];
+        var timeArray = ['6 am : ', '7 am : ', '8 am : ', '9 am : ', '10 am : ', '11 am : ', '12 pm : ', '1 pm : ',
+            '2 pm : ', '3 pm : ', '4 pm : ', '5 pm : ', '6 pm : ', '7 pm : ', '8 pm : '];
 
-        for ( var i = 0; i < 15; i++){
+        for (var i = 0; i < 15; i++) {
 
-   var airport1= document.getElementById( 'pioneer' );
-    var aLi= document.createElement( 'li' );
-    aLi.innerHTML= timeArray[i] + this.totalCookiesPH();
-    airport1.appendChild( aLi );
+            var airport1 = document.getElementById('pioneer');
+            var aLi = document.createElement('li');
+            aLi.innerHTML = timeArray[i] + this.totalCookiesPH();
+            airport1.appendChild(aLi);
 
         }
-  
+
     }
 
-    
+
 };
 
 pioneerSquare.addToDom();
 
 
-var powell= {
+var powell = {
     minCustomer: 11,
     maxCustomer: 38,
     avgCustomer: 3.7,
 
     customerPerHour: function () {
-         return Math.floor (Math.random() * (this.maxCustomer - this.minCustomer));
+        return Math.floor(Math.random() * (this.maxCustomer - this.minCustomer));
     },
-      
-    totalCookiesPH: function () {   
+
+    totalCookiesPH: function () {
 
         var cookieArray = [];
 
 
-    cookieArray.push (Math.floor( this.customerPerHour() * this.avgCustomer ));
+        cookieArray.push(Math.floor(this.customerPerHour() * this.avgCustomer));
 
-   
-    return cookieArray
+
+        return cookieArray
 
     },
 
 
     addToDom: function () {
 
-        var timeArray = ['6 am : ', '7 am : ', '8 am : ', '9 am : ', '10 am : ', '11 am : ', '12 pm : ', '1 pm : ', 
-                    '2 pm : ', '3 pm : ', '4 pm : ', '5 pm : ', '6 pm : ', '7 pm : ', '8 pm : '];
+        var timeArray = ['6 am : ', '7 am : ', '8 am : ', '9 am : ', '10 am : ', '11 am : ', '12 pm : ', '1 pm : ',
+            '2 pm : ', '3 pm : ', '4 pm : ', '5 pm : ', '6 pm : ', '7 pm : ', '8 pm : '];
 
-        for ( var i = 0; i < 15; i++){
+        for (var i = 0; i < 15; i++) {
 
-   var airport1= document.getElementById( 'powell' );
-    var aLi= document.createElement( 'li' );
-    aLi.innerHTML= timeArray[i] + this.totalCookiesPH();
-    airport1.appendChild( aLi );
+            var airport1 = document.getElementById('powell');
+            var aLi = document.createElement('li');
+            aLi.innerHTML = timeArray[i] + this.totalCookiesPH();
+            airport1.appendChild(aLi);
 
         }
-  
+
     }
 
-    
+
 };
 
 powell.addToDom();
 
-var johns= {
+
+var johns = {
     minCustomer: 11,
     maxCustomer: 38,
     avgCustomer: 3.7,
 
     customerPerHour: function () {
-         return Math.floor (Math.random() * (this.maxCustomer - this.minCustomer));
+        return Math.floor(Math.random() * (this.maxCustomer - this.minCustomer));
     },
-      
-    totalCookiesPH: function () {   
+
+    totalCookiesPH: function () {
 
         var cookieArray = [];
 
 
-    cookieArray.push (Math.floor( this.customerPerHour() * this.avgCustomer ));
+        cookieArray.push(Math.floor(this.customerPerHour() * this.avgCustomer));
 
-   
-    return cookieArray
+
+        return cookieArray
 
     },
 
 
     addToDom: function () {
 
-        var timeArray = ['6 am : ', '7 am : ', '8 am : ', '9 am : ', '10 am : ', '11 am : ', '12 pm : ', '1 pm : ', 
-                    '2 pm : ', '3 pm : ', '4 pm : ', '5 pm : ', '6 pm : ', '7 pm : ', '8 pm : '];
+        var timeArray = ['6 am : ', '7 am : ', '8 am : ', '9 am : ', '10 am : ', '11 am : ', '12 pm : ', '1 pm : ',
+            '2 pm : ', '3 pm : ', '4 pm : ', '5 pm : ', '6 pm : ', '7 pm : ', '8 pm : '];
 
-        for ( var i = 0; i < 15; i++){
+        for (var i = 0; i < 15; i++) {
 
-   var airport1= document.getElementById( 'johns' );
-    var aLi= document.createElement( 'li' );
-    aLi.innerHTML= timeArray[i] + this.totalCookiesPH();
-    airport1.appendChild( aLi );
+            var airport1 = document.getElementById('johns');
+            var aLi = document.createElement('li');
+            aLi.innerHTML = timeArray[i] + this.totalCookiesPH();
+            airport1.appendChild(aLi);
 
         }
-  
+
     }
 
-    
+
 };
 
 johns.addToDom();
 
-var waterfront= {
+
+var waterfront = {
     minCustomer: 2,
     maxCustomer: 16,
     avgCustomer: 4.6,
 
     customerPerHour: function () {
-         return Math.floor (Math.random() * (this.maxCustomer - this.minCustomer));
+        return Math.floor(Math.random() * (this.maxCustomer - this.minCustomer));
     },
-      
-    totalCookiesPH: function () {   
+
+    totalCookiesPH: function () {
 
         var cookieArray = [];
 
 
-    cookieArray.push (Math.floor( this.customerPerHour() * this.avgCustomer ));
+        cookieArray.push(Math.floor(this.customerPerHour() * this.avgCustomer));
 
-   
-    return cookieArray
+
+        return cookieArray
 
     },
 
 
     addToDom: function () {
 
-        var timeArray = ['6 am : ', '7 am : ', '8 am : ', '9 am : ', '10 am : ', '11 am : ', '12 pm : ', '1 pm : ', 
-                    '2 pm : ', '3 pm : ', '4 pm : ', '5 pm : ', '6 pm : ', '7 pm : ', '8 pm : '];
+        var timeArray = ['6 am : ', '7 am : ', '8 am : ', '9 am : ', '10 am : ', '11 am : ', '12 pm : ', '1 pm : ',
+            '2 pm : ', '3 pm : ', '4 pm : ', '5 pm : ', '6 pm : ', '7 pm : ', '8 pm : '];
 
-        for ( var i = 0; i < 15; i++){
+        for (var i = 0; i < 15; i++) {
 
-   var airport1= document.getElementById( 'waterfront' );
-    var aLi= document.createElement( 'li' );
-    aLi.innerHTML= timeArray[i] + this.totalCookiesPH();
-    airport1.appendChild( aLi );
+            var airport1 = document.getElementById('waterfront');
+            var aLi = document.createElement('li');
+            aLi.innerHTML = timeArray[i] + this.totalCookiesPH();
+            airport1.appendChild(aLi);
 
         }
-  
+
     }
 
-    
+
 };
 
 waterfront.addToDom();
@@ -225,7 +234,7 @@ waterfront.addToDom();
 
 
 
- 
+
 
 
 
