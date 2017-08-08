@@ -1,20 +1,59 @@
-function Store  (minCustomer, maxCustomer, avCustomer) {
+function Store  (name, minCustomer, maxCustomer, avCustomer) {
+    this.name= name;
     this.minCustomer = minCustomer;
     this.maxCustomer = maxCustomer;
     this.avCustomer = avCustomer;
     this.cookieArray = [];
-    getTotal = 0;
 
-
+    this.getTotal = 0;
+    this.totalCookiesPH();
     this.addToDom();
-
-var pdxAirport = new store (23, 65,6.3);
-var pioneer = new store (3, 24, 1.2);
-var powell = new store (11, 38, 3.7);
-var john = new store (11, 38, 3.7);
-var waterfront = new store (2, 16, 4.6)
-
 }
+
+Store.prototype.customerPerHour= function (){
+    return Math.floor(Math.random() * (this.maxCustomer - this.minCustomer) + this.minCustomer);
+}
+
+Store.prototype.totalCookiesPH = function (){
+    for (var i = 0; i < 15; i++){
+        this.cookieArray.push(Math.floor(this.customerPerHour() * this.avCustomer));
+    
+    }
+}
+
+Store.prototype.sum = function (){
+    for (var i = 0; i < 15; i++){
+        this.getTotal = this.cookieArray[i] + this.getTotal;
+    }
+
+    return this.getTotal;
+}
+
+Store.prototype.addToDom = function(){
+    timeArray = ['6 am : ', '7 am : ', '8 am : ', '9 am : ', '10 am : ', '11 am : ', '12 pm : ', '1 pm : ',
+            '2 pm : ', '3 pm : ', '4 pm : ', '5 pm : ', '6 pm : ', '7 pm : ', '8 pm : '];
+
+            for (var i =0; i < 15; i++){
+                var airport1 = document.getElementById( this.name );
+                var aLi = document.createElement( 'li' );
+                aLi.innerHTML= timeArray[i] + this.cookieArray[i];
+                airport1.appendChild( aLi );
+
+            }
+            var aLi = document.createElement( 'li' );
+            aLi.innerHTML = 'Total : ' + this.sum();
+            airport1.appendChild(aLi);
+}
+    
+var pdxAirport = new Store ('airport', 23, 65,6.3);
+var pioneer = new Store ('pioneer',3, 24, 1.2);
+var powell = new Store ('powell',11, 38, 3.7);
+var john = new Store ('johns',11, 38, 3.7);
+var waterfront = new Store ('waterfront', 2, 16, 4.6);
+
+
+
+
 
 
 
@@ -46,13 +85,13 @@ var waterfront = new store (2, 16, 4.6)
 
 //     },
 
-    sum: function () {
-        for (var i = 0; i < 15; i++) {
-            this.getTotal = this.cookieArray[i] + this.getTotal;
-        }
+    // sum: function () {
+    //     for (var i = 0; i < 15; i++) {
+    //         this.getTotal = this.cookieArray[i] + this.getTotal;
+    //     }
 
-        return this.getTotal;
-    },
+    //     return this.getTotal;
+    // },
 
 //     addToDom: function () {
 
