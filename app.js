@@ -5,8 +5,10 @@ function Store  (name, minCustomer, maxCustomer, avCustomer) {
     this.avCustomer = avCustomer;
     this.cookieArray = [];
 
+
     this.getTotal = 0;
     this.totalCookiesPH();
+    console.log(this.cookieArray)
     this.addToDom();
 }
 
@@ -18,6 +20,7 @@ Store.prototype.totalCookiesPH = function (){
     for (var i = 0; i < 15; i++){
         this.cookieArray.push(Math.floor(this.customerPerHour() * this.avCustomer));
     
+                console.log (this.avCustomer)
     }
 }
 
@@ -30,21 +33,33 @@ Store.prototype.sum = function (){
 }
 
 Store.prototype.addToDom = function(){
-    timeArray = ['6 am : ', '7 am : ', '8 am : ', '9 am : ', '10 am : ', '11 am : ', '12 pm : ', '1 pm : ',
-            '2 pm : ', '3 pm : ', '4 pm : ', '5 pm : ', '6 pm : ', '7 pm : ', '8 pm : '];
+    // timeArray = ['6 am : ', '7 am : ', '8 am : ', '9 am : ', '10 am : ', '11 am : ', '12 pm : ', '1 pm : ',
+    //         '2 pm : ', '3 pm : ', '4 pm : ', '5 pm : ', '6 pm : ', '7 pm : ', '8 pm : '];
 
+                var table = document.getElementById('stores');
+                var newRow = document.createElement('tr');
+                // newRow.setAttribute('id', this.id);
+                newRow.innerHTMl = this.name;
+                table.appendChild(newRow);
+
+                var title = document.createElement( 'td' );
+                title.innerHTML= this.name;
+                table.appendChild(title);
+            
             for (var i =0; i < 15; i++){
-                var airport1 = document.getElementById( this.name );
-                var aLi = document.createElement( 'li' );
-                aLi.innerHTML= timeArray[i] + this.cookieArray[i];
-                airport1.appendChild( aLi );
+            
+                var aLi = document.createElement( 'td' );
+                aLi.innerHTML=  this.cookieArray[i];
+                table.appendChild( aLi );
 
             }
-            var aLi = document.createElement( 'li' );
-            aLi.innerHTML = 'Total : ' + this.sum();
-            airport1.appendChild(aLi);
+            // var aLi = document.createElement( 'td' );
+            // aLi.innerHTML = 'Total : ' + this.sum();
+            // airport1.appendChild(aLi);
+
+            // for (var i = 0; i < 15; i++){
+
 }
-    
 var pdxAirport = new Store ('airport', 23, 65,6.3);
 var pioneer = new Store ('pioneer',3, 24, 1.2);
 var powell = new Store ('powell',11, 38, 3.7);
