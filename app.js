@@ -61,7 +61,7 @@ newRow.appendChild( sum );
 
 function hourlyTotals(){
 
-    var tbody = document.getElementById( 'stores' );
+    var tfoot = document.getElementById( 'foot' );
     var hourlyTotRow = document.createElement( 'tr' );
     var hourlyHeader = document.createElement( 'th' );
     hourlyHeader.innerText = 'Hourly Totals';
@@ -79,7 +79,7 @@ function hourlyTotals(){
         hourlyTotRow.appendChild( newCell );
     }
 
-    tbody.appendChild( hourlyTotRow );
+    tfoot.appendChild( hourlyTotRow );
 }
 
 
