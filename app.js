@@ -10,6 +10,7 @@ function Store(name, minCustomer, maxCustomer, avCustomer) {
     this.totalCookiesPH();
     console.log(this.cookieArray)
     this.addToDom();
+    this.sum();
 }
 
 Store.prototype.customerPerHour = function () {
@@ -39,64 +40,75 @@ Store.prototype.addToDom = function () {
     var table = document.getElementById('stores');
     var newRow = document.createElement('tr');
 
-    newRow.innerHTMl = this.name;
     table.appendChild(newRow);
 
     var title = document.createElement('td');
     title.innerHTML = this.name;
-    table.appendChild(title);
+    newRow.appendChild(title);
 
     for (var i = 0; i < 15; i++) {
 
         var aLi = document.createElement('td');
         aLi.innerHTML = this.cookieArray[i];
-        table.appendChild(aLi);
-
+        newRow.appendChild(aLi);
     }
-    // getting total number and appending it to table
 
-    // var table = document.getElementById( 'stores' );
-    // var hourlyTotalRow = document.createElement( 'tr' );
-
-    // var hourlyHeader = document.createElement( 'th' );
-
-    // hourlyHeaderRow.appendChild( hourlyHeader );
-    // table.appendChild( hourlyTotalRow );
-
-    // for (var i = 0; i < 15; i++){
-    //     var newCell = document.createElement( 'td' );
-
-    //     var colTotal = this.getTotal
-
-    // for(var i = 0; i < allStores.length; i++){
-    //    allStores.cookieArray[i];
-    // }
-
-    //     newCell.innerText = colTotal;
-    //     hourlyTotalRow.appendChild( newCell);
-    // }
+var sum = document.createElement( 'td' );
+sum.innerHTML = this.sum();
+newRow.appendChild( sum );
+   
 }
+
+function hourlyTotals(){
+
+    var tbody = document.getElementById( 'stores' );
+    var hourlyTotRow = document.createElement( 'tr' );
+    var hourlyHeader = document.createElement( 'th' );
+    hourlyHeader.innerText = 'Hourly Totals';
+    hourlyTotRow.appendChild( hourlyHeader );
+
+    for (var i = 0; i < 15; i ++) {
+        var newCell = document.createElement( 'td' );
+        var colTotal = 0;
+
+        for (var j = 0; j < allShops.length; j++){
+            colTotal += allShops[j].cookieArray[i];
+        }
+
+        newCell.innerText = colTotal;
+        hourlyTotRow.appendChild( newCell );
+    }
+
+    tbody.appendChild( hourlyTotRow );
+}
+
+
+
 var pdxAirport = new Store( 'PDX Airport', 23, 65, 6.3 );
 var pioneer = new Store( 'Pioneer Square', 3, 24, 1.2 );
 var powell = new Store( 'Powell', 11, 38, 3.7 );
 var john = new Store( 'St. Johns', 11, 38, 3.7 );
 var waterfront = new Store( 'Waterfront', 2, 16, 4.6 );
+var allShops = [pdxAirport, pioneer, powell, john, waterfront]
+hourlyTotals();
 
 
-// allStores = ()
 
 
-// function renderHourlyTotal () {
+// Adding form feature to add a new store location:
 
-    // loop over columns -
-// create a row 
-// gwt total per column
-// create a <td>, give the total
-// append each one to the row   
+var form = document.getElementById( 'addStore' );
 
-// append row to table
+form.addEventListener( 'click', formHandler);
 
-// }
+function formHandler(){
+
+    console.log( event )
+
+};
+
+
+
 
 
 
