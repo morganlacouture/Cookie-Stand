@@ -1,0 +1,16 @@
+table, td, tr {
+    border: 2px solid black;
+    padding: 5px;
+    margin: 0 auto;
+}
+
+h1 {
+    margin: 0 auto;
+    width: 50%;
+    color: pink;
+    text-align: center;
+    font-size: 30pt;
+    border: 5px double #CC9F0C;
+
+}
+
