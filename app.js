@@ -8,9 +8,9 @@ function Store(name, minCustomer, maxCustomer, avCustomer) {
 
     this.getTotal = 0;
     this.totalCookiesPH();
-    console.log(this.cookieArray)
     this.addToDom();
     this.sum();
+
 }
 
 Store.prototype.customerPerHour = function () {
@@ -21,13 +21,13 @@ Store.prototype.totalCookiesPH = function () {
     for (var i = 0; i < 15; i++) {
         this.cookieArray.push(Math.floor(this.customerPerHour() * this.avCustomer));
 
-        console.log(this.avCustomer)
+        // console.log(this.avCustomer)
     }
 }
 
 // Total Function
 Store.prototype.sum = function () {
-    for (var i = 0; i < 15; i++) {
+    for (var i = 0; i < this.cookieArray.length; i++) {
         this.getTotal = this.cookieArray[i] + this.getTotal;
     }
 
@@ -56,7 +56,7 @@ Store.prototype.addToDom = function () {
 var sum = document.createElement( 'td' );
 sum.innerHTML = this.sum();
 newRow.appendChild( sum );
-   
+
 }
 
 function hourlyTotals(){
@@ -99,13 +99,18 @@ hourlyTotals();
 
 var form = document.getElementById( 'addStore' );
 
-form.addEventListener( 'click', formHandler);
+form.addEventListener( 'submit', formHandler);
+
 
 function formHandler(){
+    event.preventDefault();
 
-    console.log( event )
+ 
+var newStoreName = new Store(this.location.value, this.minimumCust.value, this.maximumCust.value, this.averageCookies.value);
 
-};
+    
+}
+
 
 
 

@@ -5,9 +5,12 @@ table, td, tr {
 }
 
 h1 {
+    margin: 0 auto;
+    width: 50%;
     color: pink;
     text-align: center;
     font-size: 30pt;
+    border: 5px double #CC9F0C;
 
 }
 
