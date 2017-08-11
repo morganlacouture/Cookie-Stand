@@ -1,7 +1,18 @@
+body {
+      background: linear-gradient(-20deg, #6B6D6E ,#ECF1F2);
+
+}
+
 table, td, tr {
     border: 2px solid black;
     padding: 5px;
     margin: 0 auto;
+    background-color: white;
+    font-size: 15pt;
+}
+
+legend {
+    font-size: 20pt;
 }
 
 h1 {
@@ -9,8 +20,8 @@ h1 {
     width: 50%;
     color: pink;
     text-align: center;
-    font-size: 30pt;
+    font-size: 50pt;
     border: 5px double #CC9F0C;
-
+    background-color: black;
 }
 
