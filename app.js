@@ -61,8 +61,9 @@ newRow.appendChild( sum );
 
 function hourlyTotals(){
 
-    var tbody = document.getElementById( 'stores' );
+    var tfoot = document.getElementById( 'foot' );
     var hourlyTotRow = document.createElement( 'tr' );
+    hourlyTotRow.setAttribute( 'id', 'totalRow');
     var hourlyHeader = document.createElement( 'th' );
     hourlyHeader.innerText = 'Hourly Totals';
     hourlyTotRow.appendChild( hourlyHeader );
@@ -78,8 +79,13 @@ function hourlyTotals(){
         newCell.innerText = colTotal;
         hourlyTotRow.appendChild( newCell );
     }
+    var totesRow = document.getElementById( 'totalRow');
 
-    tbody.appendChild( hourlyTotRow );
+    if (totesRow){
+    totesRow.remove();
+    };
+
+    tfoot.appendChild( hourlyTotRow );
 }
 
 
@@ -106,11 +112,11 @@ function formHandler(){
     event.preventDefault();
 
  
-var newStoreName = new Store(this.location.value, this.minimumCust.value, this.maximumCust.value, this.averageCookies.value);
-
+    var newStoreName = new Store(this.location.value, this.minimumCust.value, this.maximumCust.value, this.averageCookies.value);
+    allShops.push(newStoreName);
+    hourlyTotals();
     
 }
-
 
 
 
