@@ -1,27 +1,34 @@
-body {
-    background-color: grey;
-    text-align: center;
-    margin: 10%;
 
-}
-
-h1{
+header{
     text-align: center;
     font-size: 55pt;
     font-family: 'Kaushan Script', cursive;
     border: 10px double #524D04;
-    margin: 0 auto;
+    position: fixed;
+    padding: 0px 15px;
+    background-color: white;
+    opacity: 0.5;
+}
+body {
+    background-color: grey;
+    text-align: center;
+       margin: 0% 10%;   
+
 }
 
 nav{
     text-align: center;
     font-size: 15pt;
+    padding: 150px 0px 0px 0px;
 }
 
 h2{
     font-family: 'Kaushan Script', cursive;
     font-size: 25pt;
 
+}
+#famBam{
+    border-radius: 50%;
 }
 
 p{
@@ -37,3 +44,7 @@ footer{
     border: 2px solid pink;
     margin: 0 auto;
 }
+
+/* #frosting{
+    border: 5px solid pink;
+} */
