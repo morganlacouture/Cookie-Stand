@@ -1,5 +1,5 @@
-body {
-      background: linear-gradient(-20deg, #6B6D6E ,#ECF1F2);
+html, body {
+    background: url(images/salmon.png) no-repeat center bottom, linear-gradient(-90deg, #6B6D6E ,#ECF1F2);
 
 }
 
@@ -25,3 +25,7 @@ h1 {
     background-color: black;
 }
 
+#addStore {
+    padding: 70px;
+
+}
